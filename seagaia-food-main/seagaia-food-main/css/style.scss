@@ -1,0 +1,519 @@
+@charset "utf=8";
+
+$mb: 375px; // スマホ
+
+@mixin mobile {
+  @media screen and (max-width: $mb) {
+    @content;
+  }
+}
+
+ul li a:hover {
+  opacity: 0.8;
+}
+
+ul li a img {
+  width: 200px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+}
+
+.bigimg {
+  position: absolute;
+  width: 80%;
+  max-width: 500px;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+
+  img {
+    @include mobile {
+      position: absolute;
+      width: 300%;
+      max-width: 600px;
+      top: 200px;
+      left: -110px;
+      right: 0;
+      z-index: 99999;
+    }
+  }
+}
+
+.btn {
+  color: #fff;
+  font-size: 40px;
+  position: absolute;
+  right: 20px;
+  top: 0;
+  z-index: 99999;
+  @include mobile {
+    top: 88px;
+    z-index: 99999999;
+  }
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+body {
+  font-family: "Noto Serif JP", serif;
+  text-decoration: none;
+  ul {
+    list-style: none;
+  }
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  border-right: 1px #ccc solid;
+  background-color: #fff;
+  @include mobile {
+    display: block;
+    width: 100vw;
+    height: 80px;
+    border-right: none;
+    border-bottom: 1px #ccc solid;
+    position: fixed;
+    z-index: 999;
+  }
+  h1 {
+    writing-mode: vertical-rl;
+    padding-top: 70px;
+    font-size: 3rem;
+    @include mobile {
+      writing-mode: horizontal-tb;
+      font-size: 1rem;
+      padding: 0;
+      padding: 10px 0 0 10px;
+    }
+  }
+  p {
+    writing-mode: vertical-rl;
+    padding-top: 20px;
+    padding-left: 25px;
+    @include mobile {
+      writing-mode: horizontal-tb;
+      font-size: 1rem;
+      padding: 0;
+      padding-left: 10px;
+    }
+  }
+}
+
+main {
+  width: 100%;
+  padding: 0 0 0 240px;
+  @include mobile {
+    padding: 0;
+  }
+}
+
+footer {
+  width: 100%;
+  padding: 0 0 0 240px;
+  background-color: #000;
+  z-index: -1;
+  border-top: 1px #fff solid;
+  color: #fff;
+  @include mobile {
+    padding: 0;
+  }
+  ul {
+    width: 40%;
+    display: flex;
+    padding: 30px 0 0 200px;
+    margin: 0 auto;
+    @include mobile {
+      padding: 25px 0 0 0;
+      flex-direction: column;
+      text-align: center;
+    }
+    li {
+      margin-right: 50px;
+      @include mobile {
+        margin: 0;
+      }
+    }
+  }
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+  small {
+    display: block;
+    text-align: center;
+    padding: 20px 0 10px;
+  }
+}
+
+.fv {
+  position: relative;
+  height: 100vh;
+  .logo {
+    position: absolute;
+    top: 40px;
+    right: 60px;
+    @include mobile {
+      z-index: 999;
+      position: fixed;
+      top: 18px;
+      left: 250px;
+    }
+    img {
+      @include mobile {
+        z-index: 9999;
+        width: 100px;
+      }
+    }
+  }
+  .fv-text {
+    position: absolute;
+    top: 650px;
+    right: 150px;
+    font-size: 2.6rem;
+    color: #fff;
+    @include mobile {
+      top: 260px;
+      left: 20px;
+      font-size: 1.7rem;
+      writing-mode: vertical-lr;
+    }
+  }
+}
+
+#video-area {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  z-index: -300;
+  overflow: hidden;
+  @include mobile {
+    height: 106vh;
+  }
+
+  #video {
+    position: absolute;
+    z-index: -300;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300.77777778vh;
+    height: 56.8vw;
+    min-height: 100%;
+    min-width: 100%;
+  }
+}
+
+.about {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  @include mobile {
+    position: static;
+    height: 100%;
+  }
+
+  .about-text {
+    top: 150px;
+    left: 100px;
+    position: absolute;
+    background-color: #ddd;
+    width: 40%;
+    padding: 60px;
+    @include mobile {
+      position: static;
+      width: 100%;
+      padding: 20px 10px;
+      background-color: #fff;
+      br {
+        display: none;
+      }
+    }
+
+    h2 {
+      font-size: 3rem;
+      @include mobile {
+        position: static;
+        width: 100%;
+        font-size: 1rem;
+      }
+    }
+  }
+  .about-img {
+    position: absolute;
+    z-index: -1;
+    top: 300px;
+    right: 100px;
+    @include mobile {
+      position: static;
+    }
+    img {
+      @include mobile {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.resort {
+  width: 100%;
+  position: relative;
+  margin-top: 100px;
+  @include mobile {
+    margin: 0;
+  }
+  .resort-text {
+    position: absolute;
+    background-color: #ddd;
+    text-align: center;
+    width: 40%;
+    margin: 0 auto 40px;
+    padding: 70px 0;
+    z-index: 11;
+    top: -100px;
+    @include mobile {
+      position: static;
+      width: 100%;
+      padding: 0 10px;
+      margin: 20px 0;
+    }
+    h2 {
+      @include mobile {
+        font-size: 1rem;
+      }
+    }
+  }
+  .youtube {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 700px;
+    @include mobile {
+      padding: 0;
+    }
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      @include mobile {
+        position: static;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+  .text-position {
+    font-size: 1.3rem;
+    margin: 100px 0 100px 100px;
+    @include mobile {
+      font-size: 1rem;
+      margin: 0;
+      padding: 0 10px;
+      br {
+        display: none;
+      }
+    }
+  }
+}
+
+@include mobile {
+}
+
+.event {
+  position: relative;
+  width: 100%;
+  margin-top: 200px;
+  @include mobile {
+    margin-top: 50px;
+  }
+  .event-text {
+    font-size: 1.5rem;
+    position: absolute;
+    top: -100px;
+    right: 200px;
+    background-color: #ddd;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto 170px;
+    padding: 60px;
+    @include mobile {
+      font-size: 0.8rem;
+      width: 100%;
+      position: static;
+      padding: 0;
+      margin: 0;
+    }
+  }
+  .event-container {
+    width: 100%;
+    display: flex;
+    text-align: center;
+    @include mobile {
+      margin: 40px 0;
+      flex-direction: column;
+
+      .order1 {
+        order: 1;
+      }
+
+      .order2 {
+        order: 2;
+      }
+    }
+
+    img {
+      width: 60%;
+      @include mobile {
+        width: 100%;
+      }
+    }
+    .event-about {
+      width: 40%;
+      margin-left: 100px;
+      margin-top: 180px;
+      display: inline-block;
+      text-align: left;
+      @include mobile {
+        text-align: center;
+        margin: 0 auto;
+        width: 90%;
+      }
+
+      span {
+        br {
+          @include mobile {
+            display: none;
+          }
+        }
+        @include mobile {
+          display: block;
+          text-align: center;
+          width: 100%;
+        }
+      }
+      h3 {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
+
+.restaurant {
+  width: 100%;
+  margin-top: 300px;
+  background-color: #000;
+  position: relative;
+  padding-bottom: 70px;
+  @include mobile {
+    position: static;
+    margin-top: 50px;
+  }
+  .restaurant-text {
+    font-size: 1.6rem;
+    position: absolute;
+    top: -30px;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    background-color: #ddd;
+    text-align: center;
+    width: 60%;
+    margin: 0 auto 170px;
+    padding: 40px 0 40px;
+    @include mobile {
+      font-size: 1rem;
+      position: static;
+      width: 100%;
+      transform: none;
+      padding: 20px 0;
+      margin: 0;
+    }
+  }
+  .food-container {
+    color: #fff;
+    height: 190vh;
+    position: relative;
+    @include mobile {
+      position: static;
+      height: 100%;
+      width: 90%;
+      margin: 0 auto;
+    }
+    .food {
+      flex-direction: column;
+      display: flex;
+      width: 40%;
+      @include mobile {
+        position: static;
+        width: 100%;
+      }
+
+      img {
+        width: 100%;
+      }
+      span {
+        text-align: center;
+      }
+    }
+    .f-name {
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+    }
+    .f-text {
+      font-size: 0.9rem;
+    }
+    .f1 {
+      position: absolute;
+      top: 150px;
+      left: 200px;
+      @include mobile {
+        position: static;
+      }
+    }
+
+    .f2 {
+      position: absolute;
+      top: 450px;
+      right: 100px;
+      @include mobile {
+        position: static;
+      }
+    }
+
+    .f3 {
+      position: absolute;
+      top: 750px;
+      left: 180px;
+      @include mobile {
+        position: static;
+      }
+    }
+
+    .f4 {
+      position: absolute;
+      top: 1100px;
+      right: 100px;
+      @include mobile {
+        position: static;
+      }
+    }
+  }
+}
